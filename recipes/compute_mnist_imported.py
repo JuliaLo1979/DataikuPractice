@@ -4,7 +4,7 @@ import pandas as pd, numpy as np
 from dataiku import pandasutils as pdu
 
 # Read recipe inputs
-mnist = dataiku.Folder("")
+mnist = dataiku.Folder("UVAoMwxi")
 mnist_info = mnist.get_info()
 
 
