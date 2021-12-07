@@ -34,5 +34,5 @@ df = pd.DataFrame(columns=['path'])
 df['path'] = folder.list_paths_in_partition()
 
 # Write recipe outputs
-mnist = dataiku.Dataset("mnist")
+mnist = dataiku.Dataset("mnist_imported")
 mnist.write_with_schema(df)
