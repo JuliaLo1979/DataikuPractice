@@ -12,7 +12,7 @@ mnist_info = mnist.get_info()
 # TODO: Write here your actual code that computes the outputs
 # NB: DSS supports several kinds of APIs for reading and writing data. Please see doc.
 
-mnist_imported_df = ... # Compute a Pandas dataframe to write into mnist_imported
+mnist_imported_df = pd.DataFrame(columns=['path']) # Compute a Pandas dataframe to write into mnist_imported
 
 
 # Write recipe outputs
