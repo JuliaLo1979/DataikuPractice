@@ -1,5 +1,5 @@
 {
-  "predictionType": "REGRESSION",
+  "predictionType": "MULTICLASS",
   "targetVariable": "label",
   "weight": {
     "weightMethod": "NO_WEIGHTING"
@@ -73,7 +73,58 @@
         "code": "# type your code here"
       }
     },
-    "target_remapping": [],
+    "target_remapping": [
+      {
+        "sourceValue": "0",
+        "mappedValue": 0,
+        "sampleFreq": 5923
+      },
+      {
+        "sourceValue": "7",
+        "mappedValue": 1,
+        "sampleFreq": 6265
+      },
+      {
+        "sourceValue": "3",
+        "mappedValue": 2,
+        "sampleFreq": 6131
+      },
+      {
+        "sourceValue": "2",
+        "mappedValue": 3,
+        "sampleFreq": 5958
+      },
+      {
+        "sourceValue": "9",
+        "mappedValue": 4,
+        "sampleFreq": 5949
+      },
+      {
+        "sourceValue": "6",
+        "mappedValue": 5,
+        "sampleFreq": 5863
+      },
+      {
+        "sourceValue": "4",
+        "mappedValue": 6,
+        "sampleFreq": 5842
+      },
+      {
+        "sourceValue": "8",
+        "mappedValue": 7,
+        "sampleFreq": 5800
+      },
+      {
+        "sourceValue": "5",
+        "mappedValue": 8,
+        "sampleFreq": 5421
+      },
+      {
+        "sourceValue": "1",
+        "mappedValue": 9,
+        "sampleFreq": 6544
+      }
+    ],
     "preprocessingFitSampleRatio": 1.0,
     "preprocessingFitSampleSeed": 1337,
     "per_feature": {
@@ -1723,7 +1774,7 @@
       "nContainers": 4
     },
     "metrics": {
-      "evaluationMetric": "R2",
+      "evaluationMetric": "ROC_AUC",
       "customEvaluationMetricGIB": true,
       "customEvaluationMetricNeedsProba": false,
       "costMatrixWeights": {
