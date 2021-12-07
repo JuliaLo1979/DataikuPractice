@@ -26,8 +26,33 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": true,
+      "designTimeReport": {
+        "report": {
+          "createdColumnCount": 3
+        }
+      },
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnSplitter",
+      "params": {
+        "inCol": "path",
+        "keepEmptyChunks": false,
+        "limit": 0,
+        "separator": "/",
+        "outColPrefix": "path_",
+        "limitOutput": false,
+        "target": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -35,7 +60,12 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "path": 148,
+    "path_2": 100,
+    "path_1": 100,
+    "path_0": 100
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
