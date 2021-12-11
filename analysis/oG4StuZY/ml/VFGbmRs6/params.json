@@ -1,5 +1,5 @@
 {
-  "predictionType": "REGRESSION",
+  "predictionType": "MULTICLASS",
   "targetVariable": "label",
   "weight": {
     "weightMethod": "NO_WEIGHTING"
@@ -73,7 +73,18 @@
         "code": "# type your code here"
       }
     },
-    "target_remapping": [],
+    "target_remapping": [
+      {
+        "sourceValue": "0",
+        "mappedValue": 0,
+        "sampleFreq": 5923
+      },
+      {
+        "sourceValue": "1",
+        "mappedValue": 1,
+        "sampleFreq": 4077
+      }
+    ],
     "preprocessingFitSampleRatio": 1.0,
     "preprocessingFitSampleSeed": 1337,
     "per_feature": {
@@ -1723,7 +1734,7 @@
       "nContainers": 4
     },
     "metrics": {
-      "evaluationMetric": "R2",
+      "evaluationMetric": "ROC_AUC",
       "customEvaluationMetricGIB": true,
       "customEvaluationMetricNeedsProba": false,
       "costMatrixWeights": {
