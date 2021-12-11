@@ -1,5 +1,5 @@
 {
-  "predictionType": "MULTICLASS",
+  "predictionType": "BINARY_CLASSIFICATION",
   "targetVariable": "label",
   "weight": {
     "weightMethod": "NO_WEIGHTING"
@@ -1731,6 +1731,7 @@
       "evaluationMetric": "ROC_AUC",
       "customEvaluationMetricGIB": true,
       "customEvaluationMetricNeedsProba": false,
+      "thresholdOptimizationMetric": "F1",
       "costMatrixWeights": {
         "tpGain": 1.0,
         "tnGain": 0.0,
