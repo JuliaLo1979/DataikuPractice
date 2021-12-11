@@ -140,7 +140,7 @@
           "recordedMeaning": "Text"
         },
         "autoReason": "REJECT_IDENTIFIER",
-        "customHandlingCode": "from keras.preprocessing.image import img_to_array, load_img\n\n# Custom image preprocessing function.\n# Must return a numpy ndarray representing the image.\n#  - image_file is a file like object\ndef preprocess_image(image_file):\n    img \u003d load_img(image_file,target_size\u003d(197, 197, 3))\n    array \u003d img_to_array(img)\n\n    # Define the actual preprocessing here\n\n    return array\n",
+        "customHandlingCode": "from keras.preprocessing.image import img_to_array, load_img\n\n# Custom image preprocessing function.\n# Must return a numpy ndarray representing the image.\n#  - image_file is a file like object\ndef preprocess_image(image_file):\n    img \u003d load_img(image_file,target_size\u003d(28 , 28, 3))\n    array \u003d img_to_array(img)\n\n    # Define the actual preprocessing here\n\n    return array\n",
         "customProcessorWantsMatrix": false,
         "sendToInput": "path_preprocessed"
       },
