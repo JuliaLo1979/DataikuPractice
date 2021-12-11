@@ -1730,8 +1730,8 @@
     "custom_python": [],
     "plugin_python": {},
     "keras": {
-      "epochs": 10,
-      "batchSize": 32,
+      "epochs": 2,
+      "batchSize": 16,
       "trainOnAllData": true,
       "stepsPerEpoch": 100,
       "shuffleData": true,
