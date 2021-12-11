@@ -32,7 +32,7 @@
   },
   "steps": [
     {
-      "preview": true,
+      "preview": false,
       "designTimeReport": {
         "report": {
           "createdColumnCount": 3
@@ -51,6 +51,39 @@
         "target": "COLUMNS"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "path_0",
+            "to": "sample"
+          },
+          {
+            "from": "path_1",
+            "to": "label"
+          }
+        ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "path_2"
+        ],
+        "keep": false,
+        "appliesTo": "SINGLE_COLUMN"
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -63,8 +96,10 @@
   "columnWidthsByName": {
     "path": 148,
     "path_2": 100,
+    "label": 100,
     "path_1": 100,
-    "path_0": 100
+    "path_0": 100,
+    "sample": 100
   },
   "sorting": [],
   "globalSearchQuery": "",
