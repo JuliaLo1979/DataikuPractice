@@ -91,7 +91,7 @@
       "path": {
         "image_handling": "CUSTOM",
         "missing_handling": "DROP_ROW",
-        "managed_folder_id": "UkVt6Epw",
+        "managed_folder_id": "UVAoMwxi",
         "role": "INPUT",
         "type": "IMAGE",
         "state": {
