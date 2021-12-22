@@ -1,5 +1,5 @@
 {
-  "predictionType": "MULTICLASS",
+  "predictionType": "BINARY_CLASSIFICATION",
   "targetVariable": "label",
   "weight": {
     "weightMethod": "NO_WEIGHTING"
@@ -80,29 +80,77 @@
         "sampleFreq": 5923
       },
       {
-        "sourceValue": "1",
+        "sourceValue": "7",
         "mappedValue": 1,
-        "sampleFreq": 4077
+        "sampleFreq": 6265
+      },
+      {
+        "sourceValue": "3",
+        "mappedValue": 2,
+        "sampleFreq": 6131
+      },
+      {
+        "sourceValue": "2",
+        "mappedValue": 3,
+        "sampleFreq": 5958
+      },
+      {
+        "sourceValue": "9",
+        "mappedValue": 4,
+        "sampleFreq": 5949
+      },
+      {
+        "sourceValue": "6",
+        "mappedValue": 5,
+        "sampleFreq": 5863
+      },
+      {
+        "sourceValue": "4",
+        "mappedValue": 6,
+        "sampleFreq": 5842
+      },
+      {
+        "sourceValue": "8",
+        "mappedValue": 7,
+        "sampleFreq": 5800
+      },
+      {
+        "sourceValue": "5",
+        "mappedValue": 8,
+        "sampleFreq": 5421
+      },
+      {
+        "sourceValue": "1",
+        "mappedValue": 9,
+        "sampleFreq": 6544
       }
     ],
     "preprocessingFitSampleRatio": 1.0,
     "preprocessingFitSampleSeed": 1337,
     "per_feature": {
       "path": {
-        "image_handling": "CUSTOM",
-        "missing_handling": "DROP_ROW",
-        "managed_folder_id": "UVAoMwxi",
-        "role": "INPUT",
-        "type": "IMAGE",
+        "category_handling": "DUMMIFY",
+        "missing_handling": "NONE",
+        "missing_impute_with": "MODE",
+        "dummy_clip": "MAX_NB_CATEGORIES",
+        "cumulative_proportion": 0.95,
+        "min_samples": 10,
+        "max_nb_categories": 100,
+        "max_cat_safety": 200,
+        "nb_bins_hashing": 1048576,
+        "hash_whole_categories": true,
+        "dummy_drop": "NONE",
+        "role": "REJECT",
+        "type": "CATEGORY",
         "state": {
-          "userModified": true,
+          "userModified": false,
           "autoModifiedByDSS": false,
           "recordedMeaning": "Text"
         },
         "autoReason": "REJECT_IDENTIFIER",
-        "customHandlingCode": "from keras.preprocessing.image import img_to_array, load_img\n\n# Custom image preprocessing function.\n# Must return a numpy ndarray representing the image.\n#  - image_file is a file like object\ndef preprocess_image(image_file):\n    img \u003d load_img(image_file,target_size\u003d(28, 28, 3))\n    array \u003d img_to_array(img)\n\n    # Define the actual preprocessing here\n    array \u003d array/255\n    \n    \n    return array\n",
+        "customHandlingCode": "",
         "customProcessorWantsMatrix": false,
-        "sendToInput": "path_preprocessed"
+        "sendToInput": "main"
       },
       "Sample": {
         "category_handling": "DUMMIFY",
@@ -1704,10 +1752,8 @@
       "advancedFitMode": false,
       "enabled": true,
       "kerasInputs": [
-        "main",
-        "path_preprocessed"
-      ],
-      "buildCode": "from keras.layers import Conv2D, MaxPooling2D, Input\nfrom keras.layers import Dense, BatchNormalization, Activation\nfrom keras.layers import Flatten, Dropout\nfrom keras.models import Model\nfrom keras.optimizers import Adam\n\ndef build_model(input_shapes, n_classes\u003dNone):\n\n    #### DEFINING INPUT AND BASE ARCHITECTURE\n    # You need to modify the name and shape of the \"image_input\" \n    # according to the preprocessing and name of your \n    # initial feature.\n    # This feature should to be preprocessed as an \"Image\", with a \n    # custom preprocessing.\n\n    image_shape \u003d (28, 28, 3)\n    image_input_name \u003d \"path_preprocessed\"\n    \n    image_input \u003d Input(shape\u003dimage_shape, name\u003dimage_input_name)\n\n    #### DEFINING THE ARCHITECTURE -- Better in GPU\n    #x \u003d Conv2D(64, kernel_size\u003d(11, 11), padding\u003d\u0027same\u0027)(image_input)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d MaxPooling2D(pool_size\u003d(3, 3))(x)\n\n    #x \u003d Conv2D(128, kernel_size\u003d(7, 7), padding\u003d\u0027same\u0027)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d MaxPooling2D(pool_size\u003d(3, 3))(x)\n\n    #x \u003d Conv2D(192, kernel_size\u003d(3, 3), padding\u003d\u0027same\u0027)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d MaxPooling2D(pool_size\u003d(3, 3))(x)\n\n    #x \u003d Conv2D(256, kernel_size\u003d(3, 3), padding\u003d\u0027same\u0027)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d MaxPooling2D(pool_size\u003d(3, 3))(x)\n\n    #x \u003d Flatten()(x)\n    #x \u003d Dense(4096)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d Dropout(0.2)(x)\n    #x \u003d Dense(4096)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027relu\u0027)(x)\n    #x \u003d Dropout(0.2)(x)\n    #x \u003d Dense(n_classes)(x)\n    #x \u003d BatchNormalization()(x)\n    #x \u003d Activation(\u0027softmax\u0027)(x)\n\n    #model \u003d Model(inputs\u003dimage_input, outputs\u003dx)\n\n    #return model\n\n    x \u003d Conv2D(32, kernel_size\u003d3, padding\u003d\u0027same\u0027, activation\u003d\u0027relu\u0027)(image_input)\n    x \u003d Conv2D(32, kernel_size\u003d3, padding\u003d\u0027same\u0027, activation\u003d\u0027relu\u0027)(x)\n    x \u003d MaxPooling2D(pool_size\u003d(2, 2))(x)\n    x \u003d Flatten()(x)\n    x \u003d Dense(128, activation\u003d\u0027relu\u0027)(x)\n    x \u003d Dropout(0.2)(x)\n    predictions \u003d Dense(n_classes, activation\u003d\u0027softmax\u0027)(x)\n    \n\n    model \u003d Model(inputs\u003dimage_input, outputs\u003dpredictions)\n\n    return model\n\ndef compile_model(model):\n    model.compile(loss\u003d\u0027categorical_crossentropy\u0027,optimizer\u003d\u0027adam\u0027,metrics\u003d[\u0027accuracy\u0027])\n    return model"
+        "main"
+      ]
     },
     "grid_search": true,
     "gridSearchParams": {
@@ -1731,6 +1777,7 @@
       "evaluationMetric": "ROC_AUC",
       "customEvaluationMetricGIB": true,
       "customEvaluationMetricNeedsProba": false,
+      "thresholdOptimizationMetric": "F1",
       "costMatrixWeights": {
         "tpGain": 1.0,
         "tnGain": 0.0,
