@@ -59,11 +59,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "A9713045"
     },
-    "lastModifiedOn": 1640182905143
+    "lastModifiedOn": 1640183272937
   },
   "creationTag": {
     "versionNumber": 0,
@@ -89,6 +89,14 @@
       {
         "name": "path",
         "type": "string"
+      },
+      {
+        "name": "Sample",
+        "type": "string"
+      },
+      {
+        "name": "label",
+        "type": "bigint"
       }
     ],
     "userModified": true
