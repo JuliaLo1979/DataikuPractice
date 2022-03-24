@@ -9,6 +9,7 @@
   "projectType": "REGULAR",
   "projectAppType": "REGULAR",
   "owner": "admin",
+  "permissionsVersion": "LEGACY",
   "permissions": [
     {
       "group": "data_team",
@@ -19,6 +20,7 @@
       "readDashboards": false,
       "writeDashboards": false,
       "moderateDashboards": false,
+      "shareToWorkspaces": false,
       "runScenarios": false,
       "manageDashboardAuthorizations": false,
       "manageExposedElements": false,
@@ -32,7 +34,12 @@
   "tutorialProject": false,
   "settings": {
     "flowAnchorSourcesAndSinks": true,
+    "flowDisplaySettings": {
+      "zonesGraphRenderingAlgorithm": "DOT_OLDRANK",
+      "zonesGraphConnectZones": true
+    },
     "gitCommitMode": "AUTO",
+    "useRemoteGit": true,
     "disableAutomaticTriggers": false,
     "integrations": {
       "integrations": []
@@ -193,11 +200,11 @@
     }
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1638836856404
+    "lastModifiedOn": 1648162051354
   },
   "creationTag": {
     "versionNumber": 0,
